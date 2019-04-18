@@ -9,8 +9,6 @@ public class InnSteps {
 
     @Step("Заполняем поле Фамилия - {0}")
     public void fillSurnameField(String surname){
-        innPage.clickElement(innPage.surnameField);
-        BaseSteps.getDriver().findElement(By.xpath("//*[contains(@id, 'uni_text_1')]")).click();
-        BaseSteps.getDriver().findElement(By.xpath("//*[contains(@id, 'uni_text_1')]")).sendKeys(surname);
+        innPage.fillField(innPage.surnameField, surname);
     }
 }
