@@ -29,7 +29,7 @@ public class BasePage {
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();",  element);
     }
 
-    public void fillField(WebElement element, String value){
+    public void fillFieldByChar(WebElement element, String value){
         clickElement(element);
         element.clear();
         for (int i = 0; i < value.length(); i++) {
@@ -37,6 +37,12 @@ public class BasePage {
             String strSymb = new StringBuilder().append(symb).toString();
             element.sendKeys(strSymb);
         }
+    }
+
+    public void fillField(WebElement element, String value){
+        clickElement(element);
+        element.clear();
+        element.sendKeys(value);
     }
 
     public void waitForElement(String xpath){
@@ -53,6 +59,14 @@ public class BasePage {
             return false;
         } finally {
             BaseSteps.getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        }
+    }
+
+    public static void delay(int seconds){
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }

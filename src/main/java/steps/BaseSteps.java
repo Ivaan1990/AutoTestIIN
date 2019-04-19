@@ -38,7 +38,7 @@ public class BaseSteps {
         baseURL = properties.getProperty("app.url");
         System.setProperty("webdriver.chrome.driver", "drv/chromedriver.exe");
         //driver = new ChromeDriver(); junit4
-        //baseURL = "https://service.nalog.ru/inn.do";
+        //baseURL = "https://service.nalog.ru/inn.do"; junit4
         driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
         driver.manage().window().maximize();
@@ -47,6 +47,6 @@ public class BaseSteps {
 
     @After
     public void quit(){
-       // driver.quit();
+        driver.quit();
     }
 }
